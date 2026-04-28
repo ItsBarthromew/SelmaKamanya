@@ -1,0 +1,687 @@
+@import url("theme.css");
+
+@font-face {
+  font-family: "Epilogue";
+  src: url("../assets/fonts/EpilogueBold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Epilogue";
+  src: url("../assets/fonts/EpilogueBlack.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Manrope";
+  src: url("../assets/fonts/ManropeLight.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Clarendon";
+  src: url("../assets/fonts/Clarendon.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Manrope", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text);
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
+}
+
+/* Smooth transition when navigating between internal pages */
+body.page-is-leaving {
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.page-is-leaving {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+.home-page {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+body.home-page .hero {
+  opacity: 1;
+  transition: opacity 560ms ease;
+}
+
+body.home-page.home-loading .hero {
+  opacity: 0;
+}
+
+body.home-page .home-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #ffffff;
+  opacity: 1;
+  transition: opacity 640ms ease;
+}
+
+body.home-page .home-intro__logo-wrap {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) translate(0, 0) scale(1);
+  transform-origin: center;
+  transition: transform 900ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform;
+}
+
+body.home-page .home-intro__logo {
+  width: 84px;
+  height: 84px;
+  display: block;
+  filter: brightness(0) saturate(100%);
+}
+
+body.home-page .home-intro.is-animating {
+  opacity: 0;
+}
+
+body.home-page .home-intro.is-animating .home-intro__logo-wrap {
+  transform: translate(-50%, -50%) translate(var(--intro-dx, 0px), var(--intro-dy, 0px)) scale(var(--intro-scale, 1));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.home-page .hero,
+  body.home-page .home-intro,
+  body.home-page .home-intro__logo-wrap {
+    transition: none;
+  }
+}
+
+body.home-page .home-horizontal {
+  position: relative;
+  height: 100svh;
+  background: #000;
+}
+
+body.home-page .home-horizontal__sticky {
+  position: relative;
+  height: 100svh;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+}
+
+body.home-page .home-horizontal__track {
+  display: flex;
+  width: max-content;
+  height: 100%;
+}
+
+body.home-page .home-horizontal__item {
+  margin: 0;
+  flex: 0 0 auto;
+  width: auto;
+  height: 100svh;
+}
+
+body.home-page .home-horizontal__item:not(.hero-slide) {
+  display: flex;
+  align-items: center;
+}
+
+body.home-page .home-horizontal__item:not(.hero-slide) img {
+  display: block;
+  height: 100svh;
+  width: auto;
+  max-width: none;
+  object-fit: contain;
+  object-position: top center;
+}
+
+body.home-page .hero-slide {
+  flex: 0 0 100vw;
+  width: 100vw;
+}
+
+.hero {
+  position: relative;
+  height: 100svh;
+  isolation: isolate;
+  background: #000;
+}
+
+.hero.home-horizontal {
+  min-height: auto;
+}
+
+.hero-slide {
+  position: relative;
+}
+
+.hero-slide .hero-image,
+.hero-slide .hero-overlay {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.hero-image,
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.hero-overlay {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.05) 100%);
+  pointer-events: none;
+}
+
+.hero-header,
+.hero-footer,
+.social-rail,
+.name-rail {
+  position: absolute;
+  z-index: 2;
+}
+
+.hero-header {
+  top: 0; /* Adjust this value to move the whole navbar block up or down */
+  left: 0;
+  right: 0;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  column-gap: 4rem; /* Change this value to adjust distance between logo and nav options */
+  padding: 0.15rem 3.25rem 0 3.25rem;
+}
+
+.hero-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: #fff;
+  font-family: "Epilogue", "Arial Narrow", Arial, sans-serif;
+  font-size: 13px;
+  mix-blend-mode: difference;
+}
+
+.hero-nav-left {
+  justify-content: flex-end;
+}
+
+.hero-nav-right {
+  justify-content: flex-start;
+}
+
+.hero-nav a {
+  color: currentColor !important;
+  -webkit-text-fill-color: currentColor;
+  text-decoration: none;
+  transition: opacity 140ms ease;
+}
+
+.hero-nav a:hover {
+  opacity: 0.62;
+}
+
+.hero-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+}
+
+.hero-logo img {
+  width: 60px;
+  height: 60px;
+  opacity: 1;
+  filter: brightness(0) invert(1);
+}
+
+.work-link {
+  color: currentColor !important;
+}
+
+/* Keep the work link adaptive with the rest of the nav */
+.hero-nav a.work-link {
+  color: currentColor !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+.social-rail {
+  display: flex;
+  align-items: center;
+  gap: 0.62rem;
+}
+
+.social-rail-left {
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  flex-direction: column;
+}
+
+.social-rail a {
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 140ms ease;
+}
+
+.social-rail a:hover {
+  transform: translateY(-1px);
+}
+
+.social-rail img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.name-rail {
+  right: 0.7rem;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-family: "Epilogue", "Arial Narrow", Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 10px;
+  color: rgba(22, 26, 33, 0.93);
+}
+
+.hero-footer {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-family: "Epilogue", "Arial Narrow", Arial, sans-serif;
+  font-size: 0.65rem;
+}
+
+.legal-links {
+  display: flex;
+  gap: 2.2rem;
+}
+
+.legal-links a,
+.hero-footer small {
+  color: rgba(18, 25, 37, 0.95);
+  text-decoration: none;
+}
+
+.hero-nav a[aria-current="page"] {
+  color: var(--nav-active-color) !important;
+  -webkit-text-fill-color: var(--nav-active-color) !important;
+}
+
+/* Blur the Work With Me nav item when it is the active page */
+.hero-nav a.work-link[aria-current="page"] {
+  filter: blur(3px);
+  -webkit-filter: blur(3px);
+  opacity: 0.95;
+}
+
+@media (max-width: 1024px) {
+  .hero-header {
+    top: 0; /* Tablet: move navbar to the top edge */
+    padding: 0.1rem 1.2rem 0 1.2rem;
+  }
+
+  .hero-nav {
+    gap: 0.9rem;
+    letter-spacing: 0.4em;
+    font-size: 13px;
+  }
+
+  .name-rail {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: 100dvh;
+  }
+
+  .hero-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 0.65rem;
+    padding: 1rem 1rem;
+  }
+
+  .hero-logo {
+    order: -1;
+    width: 100%;
+  }
+
+  .hero-nav {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    line-height: 1.0;
+  }
+
+  .social-rail-left {
+    left: 0.75rem;
+    bottom: 3.45rem;
+    top: auto;
+    transform: none;
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
+  .hero-footer {
+    padding: 0.7rem 0.75rem;
+    letter-spacing: 0.16em;
+    font-size: 0.54rem;
+  }
+
+  .legal-links {
+    gap: 1rem;
+  }
+}
+
+/* Minimal layout for simplified About page images */
+.about-images {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.about-images img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+/* remove extra gaps on the simplified about page */
+body.about-page .about-page-shell {
+  padding: 0;
+}
+
+/* Text overlay on first About image */
+.about-image-hero {
+  position: relative;
+  width: 100%;
+  height: 1200px;
+  min-height: 1200px;
+  background: url("../assets/images/AboutBackgroundImage1.png") center top / cover no-repeat;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.about-image-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5));
+  pointer-events: none;
+}
+
+.about-image-hero__content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  width: max-content;
+  max-width: calc(100% - 2rem);
+  padding: 0;
+  color: #ffffff;
+  transform: translateY(var(--about-title-offset, 8vh));
+}
+
+.about-image-hero__title {
+  margin: 0;
+  font-family: "Epilogue", "Arial Narrow", Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 900;
+  font-synthesis: none;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+body.about-page .about-image-hero__title {
+  font-size: 48px;
+}
+
+.about-image-hero__subtitle {
+  margin: 0.12rem 0 0;
+  font-family: "Epilogue", "Arial Narrow", Arial, sans-serif;
+  font-size: clamp(10px, 1.1vw, 12px); /* Adjust this to change subtitle size */
+  font-weight: 700;
+  letter-spacing: 0.28em; /* Matches navbar letter spacing */
+  text-transform: uppercase;
+  line-height: -4;
+  color: rgba(255, 255, 255, 0.9);
+  white-space: nowrap;
+}
+
+/* Second image text overlays */
+.about-image-two {
+  position: relative;
+  width: 100%;
+  min-height: 1200px;
+  background: url("../assets/images/AboutBackgroundImage2.png") center top / cover no-repeat;
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.about-image-two__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5));
+  pointer-events: none;
+}
+
+/* Text 1: Right aligned at top-right */
+.about-image-two__text-right {
+  position: absolute;
+  top: 30%; /* Adjust this value to move text up or down */
+  right: 1%; /* Adjust this value to move text left or right */
+  z-index: 1;
+  max-width: 500px;
+  text-align: right; /* Aligned to the end */
+  font-family: "Manrope", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: clamp(0.92rem, 1vw, 1rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Text 2: Left aligned center-left */
+.about-image-two__text-left {
+  position: absolute;
+  top: 70%; /* Adjust this value to move text up or down */
+  left: 1%; /* Adjust this value to move text left or right */
+  z-index: 1;
+  max-width: 420px;
+  text-align: left; /* Aligned to the start */
+  font-family: "Manrope", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: clamp(0.92rem, 1vw, 1rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  transform: translateY(-50%); /* Center vertically */
+}
+
+/* Text 3: Right aligned at bottom-right */
+.about-image-two__text-right-down {
+  position: absolute;
+  bottom: 2%; /* Adjust this value to move text up or down */
+  right: 1%; /* Adjust this value to move text left or right */
+  z-index: 1;
+  max-width: 300px;
+  text-align: right; /* Aligned to the end */
+  font-family: "Manrope", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: clamp(0.92rem, 1vw, 1rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Adjust the vertical position of the title "Beyond the Crown" */
+.about-image-hero__content {
+  transform: translateY(var(--about-title-offset, 20vh)); /* Change "8vh" to move the title up or down */
+}
+
+/* Add styling for the paragraph under the title */
+.about-image-hero__description {
+  margin: 4rem auto 0; /* Add spacing below the title */
+  max-width: 640px; /* Set the width to 640px */
+  text-align: center; /* Center align the text */
+  font-family: "Manrope", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: clamp(0.95rem, 1vw, 1rem); /* Adjust font size as needed */
+  line-height: 1.6; /* Improve readability */
+  color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+}
+
+@media (max-width: 1024px) {
+  .about-image-hero__content {
+    max-width: min(92vw, 760px);
+    transform: translateY(var(--about-title-offset-tablet, 14vh)); /* Adjust this value to move the title up or down on tablet */
+  }
+
+  .about-image-hero__title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+  }
+
+  .about-image-hero__description {
+    max-width: min(90vw, 640px);
+    margin-top: 2.5rem;
+    font-size: clamp(0.92rem, 1.6vw, 1rem);
+  }
+
+  .about-image-two__text-right,
+  .about-image-two__text-left,
+  .about-image-two__text-right-down {
+    max-width: min(88vw, 540px);
+    font-size: clamp(0.88rem, 1.5vw, 0.98rem);
+  }
+
+  .about-image-two__text-right {
+    top: 24%;
+    right: 4%;
+  }
+
+  .about-image-two__text-left {
+    top: 58%;
+    left: 4%;
+  }
+
+  .about-image-two__text-right-down {
+    bottom: 4%;
+    right: 4%;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-image-hero {
+    min-height: 900px;
+    height: auto;
+    padding: 0 1rem;
+  }
+
+  .about-image-hero__content {
+    width: min(94vw, 640px);
+    max-width: 94vw;
+    transform: translateY(var(--about-title-offset-mobile, 10vh)); /* Adjust this value to move the title up or down on mobile */
+  }
+
+  .about-image-hero__title {
+    white-space: normal;
+    font-size: clamp(2rem, 11vw, 2.9rem);
+  }
+
+  .about-image-hero__subtitle {
+    white-space: normal;
+    letter-spacing: 0.18em;
+    line-height: 1.25;
+  }
+
+  .about-image-hero__description {
+    max-width: 100%;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  .about-image-two {
+    min-height: 980px;
+  }
+
+  .about-image-two__text-right,
+  .about-image-two__text-left,
+  .about-image-two__text-right-down {
+    max-width: calc(100% - 2rem);
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+
+  .about-image-two__text-right {
+    top: 14%;
+    left: 1rem;
+    right: 1rem;
+    text-align: right;
+  }
+
+  .about-image-two__text-left {
+    top: 50%;
+    left: 1rem;
+    right: 1rem;
+    transform: translateY(-50%);
+  }
+
+  .about-image-two__text-right-down {
+    right: 1rem;
+    left: 1rem;
+    bottom: 6%;
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,430 @@
+/* Styles for Work With Me page */
+body.work-with-me-page .work-hero {
+  position: relative;
+  width: 100%;
+  height: 844px; /* fixed hero height as requested */
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+body.work-with-me-page .work-hero__image {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 844px;
+  object-fit: cover;
+  object-position: center;
+}
+
+body.work-with-me-page .work-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.15));
+  pointer-events: none;
+}
+
+body.work-with-me-page .work-hero__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #ffffff;
+  max-width: 1100px;
+  padding: 2rem 2.5rem;
+  margin-top: 240px;
+}
+
+body.work-with-me-page h1 {
+  font-family: "Epilogue", "Arial Narrow", Arial, sans-serif;
+  font-weight: 900;
+  font-size: 64px;
+  line-height: 0.98;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin: 0 0 0.25rem;
+}
+
+body.work-with-me-page p {
+  color: rgba(255,255,255,0.92);
+  font-size: 1.05rem;
+  margin: 0 auto 1.55rem;
+  max-width: 780px;
+  font-family: "Manrope", system-ui, sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+body.work-with-me-page .work-button {
+  display: inline-block;
+  text-decoration: none;
+  padding: 0.9rem 1.4rem;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 600px) {
+  body.work-with-me-page h1 { font-size: 28px; }
+  body.work-with-me-page .work-hero,
+  body.work-with-me-page .work-hero__image {
+    height: auto;
+    min-height: 420px;
+  }
+}
+
+/* Make other nav links white when on the Work With Me page */
+body.work-with-me-page .hero-nav a:not(.work-link) {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+/* Make the header logo appear white on the Work With Me page */
+body.work-with-me-page .hero-logo img {
+  filter: brightness(0) invert(1) !important;
+  -webkit-filter: brightness(0) invert(1) !important;
+}
+
+/* Quote in bottom-right */
+.work-hero__quote {
+  position: absolute;
+  right: 2.25rem;
+  bottom: 2.25rem;
+  z-index: 3;
+  font-family: "Epilogue", "Arial Narrow", Arial, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 20px;
+  letter-spacing: 0.06em;
+  color: #ffffff;
+  width: 420px;
+  text-align: right;
+}
+
+@media (max-width: 900px) {
+  .work-hero__quote { right: 1rem; left: 1rem; text-align: center; }
+}
+
+/* Partnerships Section */
+body.work-with-me-page .work-partnerships {
+  background: #8f8888;
+  padding: 4rem 2rem;
+}
+
+body.work-with-me-page .partnerships-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  width: min(1100px, calc(100% - 2rem));
+  margin: 0 auto 3rem;
+}
+
+body.work-with-me-page .partnership-card {
+  min-height: 180px;
+  padding: 1.25rem;
+  border-radius: 14px;
+  background: #1e1e1e;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #fff;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+}
+
+body.work-with-me-page .partnership-card span {
+  display: inline-block;
+  margin-bottom: 1.25rem;
+  font-family: "Clarendon", Georgia, serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  color: #00c9b1;
+}
+
+body.work-with-me-page .partnership-card h3 {
+  margin: 0 0 0.8rem;
+  font-family: "Clarendon", Georgia, serif;
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: #ffffff;
+}
+
+body.work-with-me-page .partnership-card p {
+  margin: 0;
+  font-family: "Manrope", system-ui, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+body.work-with-me-page .partnerships-footer {
+  text-align: center;
+  width: min(900px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+body.work-with-me-page .partnerships-footer h2 {
+  font-family: "Epilogue", "Arial Narrow", Arial, sans-serif;
+  font-weight: 900;
+  font-size: 64px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 0.95;
+  white-space: normal;
+  width: 100%;
+  max-width: 840px;
+  margin: 0 auto 0.5rem;
+  color: #1E1E1E;
+  text-wrap: balance;
+}
+
+body.work-with-me-page .partnerships-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 1.75rem;
+}
+
+body.work-with-me-page .partnerships-categories span {
+  font-family: "Epilogue", "Arial Narrow", Arial, sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-top: 10px;
+  color: #1E1E1E;
+}
+
+body.work-with-me-page .partnerships-footer p {
+  font-family: "Manrope", system-ui, sans-serif;
+  font-size: 0.9rem;
+  color: rgba(30,30,30,0.75);
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  body.work-with-me-page .partnerships-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  body.work-with-me-page .partnerships-footer h2 {
+    font-size: 28px;
+    white-space: normal;
+  }
+}
+
+/* Contact & Booking Section */
+body.work-with-me-page .work-contact-booking {
+  background: #1E1E1E;
+  padding: 3.5rem 1.5rem 4rem;
+  color: #f4f4f4;
+}
+
+body.work-with-me-page .work-contact-booking__inner {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+body.work-with-me-page .work-contact-booking__inner h2 {
+  margin: 0 0 2.5rem;
+  text-align: center;
+  font-family: "Epilogue", "Arial Narrow", Arial, sans-serif;
+  font-weight: 900;
+  font-size: clamp(42px, 5vw, 64px);
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: #f3f3f3;
+}
+
+body.work-with-me-page .work-contact-booking__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+body.work-with-me-page .work-contact-booking__info {
+  padding-top: 3.25rem;
+}
+
+body.work-with-me-page .work-contact-booking__info h3 {
+  margin: 0 0 0.9rem;
+  font-family: "Epilogue", "Arial Narrow", Arial, sans-serif;
+  font-size: 42px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #f3f3f3;
+}
+
+body.work-with-me-page .work-contact-booking__info p {
+  margin: 0;
+  max-width: 420px;
+  color: rgba(244, 244, 244, 0.88);
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+body.work-with-me-page .work-contact-booking__form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+body.work-with-me-page .work-contact-booking__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.55rem;
+}
+
+body.work-with-me-page .work-contact-booking__form input,
+body.work-with-me-page .work-contact-booking__form textarea {
+  width: 100%;
+  border: 1px solid rgba(244, 244, 244, 0.6);
+  border-radius: 8px;
+  background: transparent;
+  color: #f4f4f4;
+  font-family: "Manrope", system-ui, sans-serif;
+  font-size: 0.92rem;
+  padding: 0.72rem 0.9rem;
+  outline: none;
+}
+
+body.work-with-me-page .work-contact-booking__form textarea {
+  min-height: 136px;
+  resize: vertical;
+}
+
+body.work-with-me-page .work-contact-booking__form input::placeholder,
+body.work-with-me-page .work-contact-booking__form textarea::placeholder {
+  color: rgba(244, 244, 244, 0.78);
+}
+
+body.work-with-me-page .work-contact-booking__form button {
+  margin-top: 0.8rem;
+  align-self: center;
+  border: 0;
+  background: transparent;
+  color: #00c9d2;
+  font-family: "Epilogue", "Arial Narrow", Arial, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0;
+}
+
+body.work-with-me-page .work-contact-booking__form button span {
+  margin-left: 0.5rem;
+}
+
+@media (max-width: 900px) {
+  body.work-with-me-page .work-contact-booking__grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  body.work-with-me-page .work-contact-booking__info {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  body.work-with-me-page .work-contact-booking__row {
+    grid-template-columns: 1fr;
+  }
+
+  body.work-with-me-page .work-contact-booking__info h3 {
+    font-size: 32px;
+  }
+}
+
+/* Footer styles for Work With Me page */
+body.work-with-me-page .about-footer {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.4rem 2rem 2.4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  background: #1e1e1e;
+  color: #f5f5f5;
+}
+
+body.work-with-me-page .about-footer__brand {
+  font-family: "Epilogue", "Arial Narrow", Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 1rem;
+}
+
+body.work-with-me-page .about-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  justify-content: center;
+}
+
+body.work-with-me-page .about-footer__links a {
+  color: rgba(255, 255, 255, 0.72);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.7rem;
+}
+
+body.work-with-me-page .about-footer__socials {
+  display: flex;
+  gap: 0.5rem;
+}
+
+body.work-with-me-page .about-footer__socials img {
+  width: 22px;
+  height: 22px;
+}
+
+/* Reveal animation hooks for Work With Me page */
+body.work-with-me-page .reveal-item {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 700ms ease,
+    transform 700ms ease;
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+body.work-with-me-page .reveal-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.work-with-me-page .reveal-item {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  body.work-with-me-page .about-footer {
+    grid-template-columns: 1fr;
+    justify-items: start;
+  }
+}
+
+@media (max-width: 600px) {
+  body.work-with-me-page .about-footer {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: center;
+    justify-items: center;
+  }
+}
+

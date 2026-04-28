@@ -1,0 +1,16 @@
+:root {
+  --bg: #dfe9f7;
+  --bg-soft: #f2f6ff;
+  --surface: #ffffff;
+  --text: #1E1E1E;
+  --muted: #3d4553;
+  --accent: #00C9B1;
+  --accent2: #2C468F;
+  /* Navigation colors - customize these to change nav appearance */
+  --nav-color: #121521; /* default nav text color (light background) */
+  --nav-active-color: var(--muted); /* active nav color */
+  --nav-color-on-dark: #ffffff; /* nav text color when on dark backgrounds */
+  --nav-active-on-dark: #3d4553; /* active nav color on dark backgrounds */
+  --border: rgba(18, 25, 37, 0.22);
+  --overlay: rgba(223, 233, 247, 0.2);
+}       

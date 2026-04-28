@@ -1,0 +1,540 @@
+/* About Page Styles */
+
+body.about-page {
+  background: #0b0b0b;
+  color: #f5f5f5;
+}
+
+body.about-page .about-page-shell {
+  background: #0b0b0b;
+  padding: 0;
+}
+
+body.about-page .hero-header {
+  z-index: 10;
+}
+
+body.about-page {
+  /* switch nav colors when on dark about page */
+  --nav-color: var(--nav-color-on-dark);
+  --nav-active-color: var(--nav-active-on-dark);
+}
+
+/* On the about page: make all nav links (except the work link) white,
+   and keep the active link using the dark active color. */
+body.about-page .hero-nav a:not(.work-link) {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+/* Active link must come AFTER and override the white rule */
+body.about-page .hero-nav a[aria-current="page"] {
+  color: var(--nav-active-color) !important;
+  -webkit-text-fill-color: var(--nav-active-color) !important;
+}
+
+/* Add spacing between title groups in hero content */
+.about-image-hero__content h1:not(:first-of-type) {
+  margin-top: 4rem;
+}
+
+body.about-page .hero-logo img {
+  filter: brightness(0) invert(1) saturate(0);
+}
+
+body.about-page .work-link {
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent !important;
+  display: inline-block;
+}
+
+body.about-page .about-hero {
+  margin-top: 200px;
+  position: relative;
+  min-height: 100svh;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8)),
+    url("../assets/images/AboutBackgroundImage1.png") center top / cover no-repeat;
+  display: grid;
+  place-items: end center;
+  padding: 4rem 1.5rem 4rem;
+  overflow: hidden;
+}
+
+body.about-page .about-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center 30%, rgba(255, 255, 255, 0.05), transparent 58%);
+}
+
+body.about-page .about-hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 820px;
+  text-align: center;
+  padding: 0 1rem 0.5rem;
+}
+
+body.about-page .eyebrow {
+  margin: 0 0 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  font-size: 0.7rem;
+  color: #fff;
+  font-family: "Epilogue", "Arial Narrow", Arial, sans-serif;
+  font-weight: 800;
+}
+
+body.about-page .eyebrow--muted {
+  color: rgba(255, 255, 255, 0.58);
+}
+
+body.about-page h1,
+body.about-page h2,
+body.about-page h3 {
+  margin: 0;
+  font-family: "Epilogue", "Arial Narrow", Arial, sans-serif;
+  line-height: 0.94;
+  font-weight: 800;
+}
+
+body.about-page h1 {
+  font-size: clamp(3rem, 8vw, 6.4rem);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+body.about-page h2 {
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  text-transform: uppercase;
+  color: #f5f5f5;
+}
+
+body.about-page .about-hero__lede {
+  max-width: 46rem;
+  margin: 1.25rem auto 0;
+  font-size: clamp(1rem, 1.55vw, 1.25rem);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.82);
+  font-family: "Manrope", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 300;
+}
+
+body.about-page .about-hero__quote {
+  margin: 0.6rem auto 0;
+  max-width: 42rem;
+  font-family: "Epilogue", "Arial Narrow", Arial, sans-serif;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+body.about-page .about-story,
+body.about-page .investing-section,
+body.about-page .contact-banner,
+body.about-page .about-footer {
+  width: min(1200px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+body.about-page .about-story {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  min-height: 760px;
+  background: #111;
+}
+
+body.about-page .about-story--reverse {
+  grid-template-columns: 0.9fr 1.1fr;
+}
+
+body.about-page .about-story__image {
+  min-height: 760px;
+  background-size: cover;
+  background-position: center center;
+}
+
+body.about-page .about-story__image--primary {
+  background-image:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.25)),
+    url("../assets/images/AboutBackgroundImage2.png");
+}
+
+body.about-page .about-story__image--secondary {
+  background-image:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.18)),
+    url("../assets/images/AboutBackgroundImage1.png");
+  filter: grayscale(1);
+}
+
+body.about-page .about-story__copy {
+  display: grid;
+  align-content: center;
+  gap: 1rem;
+  padding: clamp(2rem, 5vw, 4.5rem);
+  background: #141414;
+  color: #efefef;
+}
+
+body.about-page .about-story__copy--light {
+  background: #1b1b1b;
+}
+
+body.about-page .about-story__copy p {
+  margin: 0;
+  max-width: 34rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.82);
+  font-family: "Manrope", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 300;
+}
+
+body.about-page .values-section {
+  background: #8f8888;
+  padding: 5rem 1.25rem 6rem;
+}
+
+body.about-page .section-heading {
+  width: min(1100px, calc(100% - 2rem));
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+
+body.about-page .section-heading h2 {
+  color: #1d1d1d;
+}
+
+body.about-page .values-grid {
+  width: min(1100px, calc(100% - 2rem));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1.1rem;
+}
+
+body.about-page .values-grid .value-card:nth-child(1),
+body.about-page .values-grid .value-card:nth-child(2),
+body.about-page .values-grid .value-card:nth-child(3) {
+  grid-column: span 2;
+}
+
+body.about-page .values-grid .value-card:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+
+body.about-page .values-grid .value-card:nth-child(5) {
+  grid-column: 4 / span 2;
+}
+
+body.about-page .value-card {
+  min-height: 180px;
+  padding: 1.25rem;
+  border-radius: 14px;
+  background: #1e1e1e;
+  color: #fff;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+}
+
+body.about-page .value-card span {
+  display: inline-block;
+  margin-bottom: 1.25rem;
+  font-family: "Clarendon", Georgia, serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  color: #ffffff;
+}
+
+body.about-page .value-card h3 {
+  margin-bottom: 0.8rem;
+  font-family: "Clarendon", Georgia, serif;
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  font-weight: 400;
+}
+
+body.about-page .value-card p {
+  margin: 0;
+  font-family: "Manrope", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+body.about-page .investing-section {
+  display: grid;
+  padding: 5rem 1.25rem;
+  background: #8f8888;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+body.about-page .investing-section__inner {
+  width: min(1100px, calc(100% - 4rem));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 3rem;
+}
+
+body.about-page .investing-copy {
+  max-width: 45rem;
+}
+
+body.about-page .investing-copy h2 {
+  margin: 0 0 1rem;
+  font-family: "Epilogue", "Arial Narrow", Arial, sans-serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  color: #1e1e1e;
+  font-weight: 900;
+}
+
+body.about-page .investing-copy p {
+  max-width: 40rem;
+  line-height: 1.45;
+  color: rgba(20, 20, 20, 0.82);
+}
+
+body.about-page .about-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  width: fit-content;
+  grid-column: 1 / -1;
+  justify-self: center;
+  margin: 0.5rem auto 0;
+  padding-bottom: 0.2rem;
+  color: #1e1e1e;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  border-bottom: 1px solid currentColor;
+}
+
+body.about-page .about-link::after {
+  content: "→";
+  font-size: 1em;
+  line-height: 1;
+}
+
+body.about-page .investing-mark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body.about-page .investing-mark img {
+  width: min(220px, 26vw);
+  height: auto;
+  filter: brightness(0);
+  opacity: 0.85;
+}
+
+body.about-page .contact-banner {
+  display: grid;
+  place-items: center;
+  gap: 1.5rem;
+  padding: 2rem 1.25rem;
+  background: #101010;
+  text-align: center;
+}
+
+body.about-page .contact-banner p {
+  margin: 0;
+  max-width: none;
+  font-family: "Epilogue", "Arial Narrow", Arial, sans-serif;
+  font-size: 128px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #f7f7f7;
+}
+
+@media (max-width: 900px) {
+  body.about-page .contact-banner p {
+    font-size: clamp(28px, 8vw, 64px);
+  }
+}
+
+body.about-page .work-button {
+  color: var(--accent);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-weight: 700;
+}
+
+body.about-page .about-footer {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.4rem 2rem 2.4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  color: #f5f5f5;
+}
+
+body.about-page .about-footer__brand {
+  font-family: "Epilogue", "Arial Narrow", Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 1rem;
+}
+
+body.about-page .about-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  justify-content: center;
+}
+
+body.about-page .about-footer__links a {
+  color: rgba(255, 255, 255, 0.72);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.7rem;
+}
+
+body.about-page .about-footer__socials {
+  display: flex;
+  gap: 0.5rem;
+}
+
+body.about-page .about-footer__socials img {
+  width: 22px;
+  height: 22px;
+}
+
+body.about-page .reveal-item {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 700ms ease,
+    transform 700ms ease;
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+body.about-page .reveal-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.about-page .reveal-item {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  body.about-page .about-story,
+  body.about-page .about-story--reverse,
+  body.about-page .investing-section,
+  body.about-page .about-footer {
+    grid-template-columns: 1fr;
+  }
+
+  body.about-page .about-story__image,
+  body.about-page .about-story__copy {
+    min-height: 0;
+  }
+
+  body.about-page .values-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body.about-page .values-grid .value-card:nth-child(1),
+  body.about-page .values-grid .value-card:nth-child(2),
+  body.about-page .values-grid .value-card:nth-child(3),
+  body.about-page .values-grid .value-card:nth-child(4),
+  body.about-page .values-grid .value-card:nth-child(5) {
+    grid-column: auto;
+  }
+
+  body.about-page .investing-mark {
+    order: -1;
+  }
+
+  body.about-page .about-footer {
+    justify-items: start;
+  }
+
+  body.about-page .investing-section {
+    grid-template-columns: 1fr;
+  }
+
+  body.about-page .investing-section__inner {
+    width: min(100%, 900px);
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  body.about-page .investing-copy {
+    max-width: none;
+  }
+
+  body.about-page .investing-mark {
+    order: -1;
+  }
+}
+
+@media (max-width: 600px) {
+  body.about-page .about-hero {
+    min-height: 82svh;
+    padding: 7rem 1rem 3rem;
+  }
+
+  body.about-page .values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body.about-page .values-grid .value-card:nth-child(1),
+  body.about-page .values-grid .value-card:nth-child(2),
+  body.about-page .values-grid .value-card:nth-child(3),
+  body.about-page .values-grid .value-card:nth-child(4),
+  body.about-page .values-grid .value-card:nth-child(5) {
+    grid-column: auto;
+  }
+
+  body.about-page .about-story__copy,
+  body.about-page .investing-section,
+  body.about-page .values-section,
+  body.about-page .contact-banner {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  body.about-page .about-footer {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  body.about-page .investing-section {
+    gap: 1.5rem;
+  }
+
+  body.about-page .investing-copy h2 {
+    font-size: clamp(1.8rem, 10vw, 2.8rem);
+  }
+
+  body.about-page .investing-mark img {
+    width: min(140px, 40vw);
+  }
+
+  body.about-page .about-footer {
+    grid-template-columns: 1fr;
+    text-align: center;
+    justify-items: center;
+  }
+}

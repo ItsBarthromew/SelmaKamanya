@@ -1,0 +1,210 @@
+/* Global Ambassador Page Styles */
+
+/* Hero Section */
+.global-ambassador-page .about-image-hero {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url("../assets/images/GlobalAmbassadorBackground.png") center top / cover no-repeat;
+}
+
+/* Hero Content Spacing */
+.global-ambassador-page .about-image-hero__content {
+  transform: translateY(var(--about-title-offset, 10vh));
+}
+
+.global-ambassador-page .about-image-hero__content h1:not(:first-of-type) {
+  margin-top: 16rem;
+}
+
+.global-ambassador-page .about-image-hero__title {
+  font-size: 48px;
+}
+
+/* Increase size of "REPRESENTING MORE THAN MYSELF" heading */
+.global-ambassador-page .about-image-hero__content h1:nth-of-type(2) {
+  font-size: 48px;
+}
+
+.global-ambassador-page .about-image-hero__subtitle {
+  margin: 0.12rem 0 0;
+  font-size: clamp(10px, 1.1vw, 12px);
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  line-height: -4;
+  color: rgba(255, 255, 255, 0.9);
+  white-space: nowrap;
+}
+
+.global-ambassador-page .about-image-hero__description {
+  margin: 1rem auto 0;
+  max-width: 640px;
+  text-align: center;
+  font-size: clamp(0.95rem, 1vw, 1rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Values Section - Custom styling for Global Ambassador */
+.global-ambassador-page .values-section {
+  background: linear-gradient(135deg, #2c468f 0%, #00c9b1 100%);
+}
+
+.global-ambassador-page .section-heading h2 {
+  color: #ffffff;
+}
+
+.global-ambassador-page .values-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+}
+
+.global-ambassador-page .values-grid .value-card:nth-child(n) {
+  grid-column: auto !important;
+}
+
+.global-ambassador-page .value-card {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.global-ambassador-page .value-card h3 {
+  color: #ffffff;
+}
+
+.global-ambassador-page .value-card p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.global-ambassador-page .value-card span {
+  color: #00c9b1;
+}
+
+/* Investing Section */
+.global-ambassador-page .investing-section {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+}
+
+.global-ambassador-page .investing-section__inner {
+  display: grid;
+  grid-template-columns: 330px 1fr;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.global-ambassador-page .investing-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.global-ambassador-page .investing-image img {
+  width: 330px;
+  height: 378px;
+  object-fit: cover;
+  border-radius: 22px;
+}
+
+.global-ambassador-page .investing-copy h2 {
+  color: #00c9b1;
+  margin: 0 0 1rem;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.global-ambassador-page .investing-copy {
+  max-width: 750px;
+}
+
+.global-ambassador-page .investing-copy p {
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.global-ambassador-page .speaker-topics,
+.global-ambassador-page .speaker-panels {
+  margin-bottom: 1.5rem;
+}
+
+.global-ambassador-page .speaker-topics h3,
+.global-ambassador-page .speaker-panels h3 {
+  color: #000000;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: 0;
+  margin: 0 0 0.8rem;
+}
+
+.global-ambassador-page .speaker-topics ul,
+.global-ambassador-page .speaker-panels ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.global-ambassador-page .speaker-topics li,
+.global-ambassador-page .speaker-panels li {
+  color: #000000;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.8;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.global-ambassador-page .speaker-topics li:before,
+.global-ambassador-page .speaker-panels li:before {
+  content: "•";
+  color: #00c9b1;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.global-ambassador-page .speaker-button {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.8rem 2rem;
+  background: linear-gradient(90deg, #2c468f 0%, #00c9b1 100%);
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  transition: opacity 140ms ease;
+}
+
+.global-ambassador-page .speaker-button:hover {
+  opacity: 0.8;
+}
+
+.global-ambassador-page .investing-copy p {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Contact Banner */
+.global-ambassador-page .contact-banner {
+  background: linear-gradient(90deg, #2c468f 0%, #00c9b1 100%);
+}
+
+.global-ambassador-page .contact-banner p {
+  color: #ffffff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .global-ambassador-page .values-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .global-ambassador-page .values-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .global-ambassador-page .investing-section__inner {
+    grid-template-columns: 1fr;
+  }
+}

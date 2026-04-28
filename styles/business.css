@@ -1,0 +1,679 @@
+/* Business Page Styles */
+
+body.business-page {
+  background: #0b0b0b;
+  color: #f5f5f5;
+}
+
+body.business-page .business-page-shell {
+  background: #0b0b0b;
+  padding: 0;
+}
+
+body.business-page .hero-header {
+  z-index: 10;
+}
+
+body.business-page {
+  /* switch nav colors when on dark business page */
+  --nav-color: var(--nav-color-on-dark);
+  --nav-active-color: var(--nav-active-on-dark);
+}
+
+/* On the business page: make all nav links (except the work link) white,
+   and keep the active link using the dark active color. */
+body.business-page .hero-nav a:not(.work-link) {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+/* Active link must come AFTER and override the white rule */
+body.business-page .hero-nav a[aria-current="page"] {
+  color: var(--nav-active-color) !important;
+  -webkit-text-fill-color: var(--nav-active-color) !important;
+}
+
+body.business-page .hero-logo img {
+  filter: brightness(0) invert(1) saturate(0);
+}
+
+body.business-page .work-link {
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent !important;
+  display: inline-block;
+}
+
+body.business-page .business-images {
+  display: flex;
+  flex-direction: column;
+}
+
+body.business-page .business-image-one,
+body.business-page .business-image-two {
+  width: 100%;
+  min-height: 600px;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+body.business-page .business-image-one {
+  height: 1196px;
+}
+
+body.business-page .business-image-two {
+  height: 1338px;
+}
+
+body.business-page .business-image-one {
+  background-image:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.25)),
+    url("../assets/images/BusinessBackground1.png");
+}
+
+body.business-page .business-image-one__overlay {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center 30%, rgba(255, 255, 255, 0.03), transparent 58%);
+}
+
+/* Text overlay styles - CUSTOMIZABLE POSITIONING */
+body.business-page .business-image-one__text {
+  position: absolute;
+  
+  /* === CUSTOMIZABLE POSITION === */
+  /* Change these values to position the text exactly where you want */
+  top: 360px;        /* Distance from top of the image */
+  right: 10px; 
+  
+  /* === CUSTOMIZABLE WIDTH === */
+  /* Change this value to adjust the text container width */
+  width: 450px;
+  
+  /* Font styling */
+  font-family: 'Manrope', sans-serif;
+  font-weight: 300;  /* Light weight */
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ffffff;
+  text-align: end;   /* Align text to the right edge */
+  
+  /* Ensure text is on top of overlay */
+  z-index: 2;
+}
+
+/* Quote overlay styles - LEFT SIDE */
+body.business-page .business-image-one__quote {
+  position: absolute;
+  
+  /* === CUSTOMIZABLE POSITION === */
+  top: 800px;        /* Distance from top of the image */
+  left: 10px;        /* Distance from left edge */
+  
+  /* === CUSTOMIZABLE WIDTH === */
+  width: 280px;
+  
+  /* Font styling */
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 900;  /* Black weight */
+  font-size: 24px;
+  line-height: 1.2;
+  color: #ffffff;
+  text-align: start; /* Left align text */
+  text-transform: uppercase;
+  
+  /* Ensure text is on top of overlay */
+  z-index: 2;
+}
+
+/* Make the image section relative so absolute positioning works */
+body.business-page .business-image-one {
+  position: relative;
+}
+
+/* Business Image Two Text Content Styles */
+body.business-page .business-image-two {
+  position: relative;
+}
+
+body.business-page .business-image-two__content {
+  position: absolute;
+  
+  /* === CUSTOMIZABLE POSITION === */
+  /* Change these values to position the content exactly where you want */
+  top: 120px;        /* Distance from top of the image */
+  left: 80px;        /* Distance from left of the image */
+  
+  /* === CUSTOMIZABLE WIDTH === */
+  /* Change this value to adjust the content container width */
+  width: 757px;
+  
+  /* Ensure content is on top of overlay */
+  z-index: 2;
+}
+
+body.business-page .business-image-two__title h2 {
+  margin: 0 0 1.5rem;
+  font-family: "Epilogue", "Arial Narrow", Arial, sans-serif;
+  font-size: 64px;
+  line-height: 0.95;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-weight: 900;
+  width: 787px;
+}
+
+body.business-page .business-image-two__logo {
+  position: absolute;
+  /* Change these 3 values to move/resize the first logo yourself */
+  top: 400px;        /* vertical position */
+  right: 140px;       /* horizontal position */
+  height: 195px;     /* logo size */
+  width: auto;
+  z-index: 2;
+}
+
+body.business-page .business-image-two__logo img {
+  height: 100%;
+  width: auto;
+  display: block;
+  /* White overlap effect for dark PNG logos */
+  filter: brightness(0) invert(1);
+}
+
+body.business-page .business-image-two__text {
+  width: 757px;
+}
+
+body.business-page .business-image-two__text p {
+  margin: 0 0 1.5rem;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 300;  /* Light weight */
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ffffff;
+}
+
+body.business-page .business-image-two__text p:last-child {
+  margin-bottom: 0;
+}
+
+body.business-page .business-image-two__text ul {
+  margin: 0 0 1.5rem;
+  padding-left: 1.5rem;
+}
+
+body.business-page .business-image-two__text li {
+  margin: 0 0 0.5rem;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 300;  /* Light weight */
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ffffff;
+}
+
+body.business-page .business-image-two__text li:last-child {
+  margin-bottom: 0;
+}
+
+body.business-page .business-image-two__text strong {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+body.business-page .business-image-two__content .about-link,
+body.business-page .business-image-two__content-flipped .about-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 0.75rem;
+  color: #ffffff;
+  font-family: "Epilogue", "Arial Narrow", Arial, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 900;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 0.2rem;
+}
+
+body.business-page .business-image-two__content .about-link {
+  display: flex;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  position: relative;
+  top: 0px;
+  left: 200px;
+}
+
+body.business-page .business-image-two__content .about-link::after,
+body.business-page .business-image-two__content-flipped .about-link::after {
+  content: "\2192";
+  font-size: 1em;
+  line-height: 1;
+}
+
+body.business-page .business-image-two {
+  background-image:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.18)),
+    url("../assets/images/BusinessBackground2.png");
+}
+
+body.business-page .business-image-two__overlay {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center 30%, rgba(255, 255, 255, 0.03), transparent 58%);
+}
+
+/* Business Image Three Styles (Content on Image 2) */
+body.business-page .business-image-two__content-flipped {
+  position: absolute;
+  
+  top: 800px;       /* Distance from top of the image */
+  right: 300px;       /* Distance from right of the image (flipped layout) */
+  
+
+  width: 500px;
+  
+  /* Ensure content is on top of overlay */
+  z-index: 2;
+}
+
+body.business-page .business-image-two__content-flipped .business-image-two__title-flipped h2 {
+  margin: 0 0 1.2rem;
+  font-family: "Epilogue", "Arial Narrow", Arial, sans-serif;
+  font-size: 64px;
+  line-height: 0.95;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-weight: 900;
+  width: 787px;
+}
+
+body.business-page .business-image-two__content-flipped .business-image-two__text-flipped {
+  width: 757px;
+}
+
+body.business-page .business-image-two__content-flipped .business-image-two__text-flipped p {
+  margin: 0 0 1.5rem;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 300;  /* Light weight */
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ffffff;
+}
+
+body.business-page .business-image-two__content-flipped .business-image-two__text-flipped p:last-child {
+  margin-bottom: 0;
+}
+
+body.business-page .business-image-two__content-flipped .business-image-two__text-flipped ul {
+  margin: 0 0 1.5rem;
+  padding-left: 1.5rem;
+}
+
+body.business-page .business-image-two__content-flipped .business-image-two__text-flipped li {
+  margin: 0 0 0.5rem;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 300;  /* Light weight */
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ffffff;
+}
+
+body.business-page .business-image-two__content-flipped .business-image-two__text-flipped li:last-child {
+  margin-bottom: 0;
+}
+
+body.business-page .business-image-two__content-flipped .business-image-two__text-flipped strong {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+body.business-page .business-image-two__logo-flipped {
+  position: absolute;
+  
+  /* === CUSTOMIZABLE LOGO POSITION === */
+  /* Change these values to position the logo exactly where you want */
+  /* To control distance from bottom: Change IMAGE_HEIGHT - DESIRED_DISTANCE */
+  /* Current: 1338px - 200px = 1138px (same distance from bottom as section 1 is from top) */
+  top: 900px;       /* Distance from top of the image */
+  left: 80px;        /* Adjust horizontal position (flipped to left) */
+  height: 195px;
+  width: auto;
+  display: block;
+  z-index: 2;
+}
+
+body.business-page .business-image-two__logo-flipped img {
+  width: 100%;
+  height: auto;
+  border-radius: 22px; /* 22px corner edges */
+  object-fit: cover;
+  /* Removed filter to show original logo colors */
+}
+
+body.business-page .business-image-three__overlay {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center 30%, rgba(255, 255, 255, 0.03), transparent 58%);
+}
+
+body.business-page .business-image-three__content {
+  position: absolute;
+  
+  /* === CUSTOMIZABLE POSITION === */
+  /* Change these values to position the content exactly where you want */
+  top: 400px;        /* Distance from top of the image */
+  left: 80px;        /* Distance from left of the image */
+  
+  /* === CUSTOMIZABLE WIDTH === */
+  /* Change this value to adjust the content container width */
+  width: 500px;
+  
+  /* Ensure content is on top of overlay */
+  z-index: 2;
+}
+
+body.business-page .business-image-three__title h2 {
+  margin: 0 0 1.5rem;
+  font-family: "Epilogue", "Arial Narrow", Arial, sans-serif;
+  font-size: 64px;
+  line-height: 0.95;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-weight: 900;
+  width: 787px;
+}
+
+body.business-page .business-image-three__text {
+  width: 757px;
+}
+
+body.business-page .business-image-three__text p {
+  margin: 0 0 1.5rem;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 300;  /* Light weight */
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ffffff;
+}
+
+body.business-page .business-image-three__text p:last-child {
+  margin-bottom: 0;
+}
+
+body.business-page .business-image-three__text ul {
+  margin: 0 0 1.5rem;
+  padding-left: 1.5rem;
+}
+
+body.business-page .business-image-three__text li {
+  margin: 0 0 0.5rem;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 300;  /* Light weight */
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ffffff;
+}
+
+body.business-page .business-image-three__text li:last-child {
+  margin-bottom: 0;
+}
+
+body.business-page .business-image-three__text strong {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+body.business-page .business-image-three__logo {
+  position: absolute;
+  
+  /* === CUSTOMIZABLE LOGO POSITION === */
+  /* Change these values to position the logo exactly where you want */
+  top: 400px;        /* Adjust vertical position */
+  right: 80px;       /* Adjust horizontal position */
+  height: 195px;
+  width: auto;
+  display: block;
+  z-index: 2;
+}
+
+body.business-page .business-image-three__logo img {
+  width: 100%;
+  height: auto;
+  filter: brightness(0) invert(1) saturate(0); /* Make logo white for dark background */
+}
+
+body.business-page .business-partners {
+  /* full-bleed background */
+  width: 100%;
+  padding: 5rem 0 6rem;
+  background: linear-gradient(180deg, #101010 0%, #141414 100%);
+}
+
+body.business-page .business-partners__inner {
+  width: min(1200px, calc(100% - 4rem));
+  margin: 0 auto;
+  display: grid;
+  gap: 3.5rem; /* spacing between intro / collab / offers */
+  text-align: center;
+}
+
+body.business-page .business-partners__intro h2 {
+  margin: 0;
+  font-family: "Epilogue", "Arial Narrow", Arial, sans-serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+body.business-page .business-partners__intro p {
+  margin: 0.8rem auto 0;
+  max-width: 46rem;
+  color: rgba(255, 255, 255, 0.84);
+  line-height: 1.6;
+}
+
+body.business-page .business-partners__cta {
+  margin: 1.4rem auto 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: "Epilogue", "Arial Narrow", Arial, sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 0.2rem;
+}
+
+body.business-page .business-partners__cta::after {
+  content: "\2192";
+  line-height: 1;
+}
+
+body.business-page .business-partners__collab p {
+  margin: 0;
+  font-family: "Epilogue", "Arial Narrow", Arial, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+body.business-page .business-partners__logos {
+  margin-top: 1.4rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+  align-items: center;
+  justify-items: center;
+}
+
+body.business-page .business-partners__logos img {
+  max-width: 220px;
+  width: auto;
+  max-height: 140px;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+body.business-page .business-partners__offers h3 {
+  margin: 0;
+  font-family: "Epilogue", "Arial Narrow", Arial, sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.9rem);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+body.business-page .business-partners__offers ul {
+  list-style: none;
+  margin: 1.2rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+body.business-page .business-partners__offers li {
+  font-family: "Epilogue", "Arial Narrow", Arial, sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+body.business-page .reveal-item {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 700ms ease,
+    transform 700ms ease;
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+body.business-page .reveal-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.business-page .reveal-item {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  body.business-page .business-image-one,
+  body.business-page .business-image-two {
+    min-height: 400px;
+  }
+
+  body.business-page .business-partners__logos {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  body.business-page .business-image-one,
+  body.business-page .business-image-two {
+    min-height: 300px;
+  }
+
+  body.business-page .business-partners__inner {
+    width: min(100%, calc(100% - 2rem));
+  }
+
+  body.business-page .about-footer {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Footer styles for Business page (same look as About footer) */
+body.business-page .about-footer {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.4rem 2rem 2.4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  color: #f5f5f5;
+}
+
+body.business-page .about-footer__brand {
+  font-family: "Epilogue", "Arial Narrow", Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 1rem;
+}
+
+body.business-page .about-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  justify-content: center;
+}
+
+body.business-page .about-footer__links a {
+  color: rgba(255, 255, 255, 0.72);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.7rem;
+}
+
+body.business-page .about-footer__socials {
+  display: flex;
+  gap: 0.5rem;
+}
+
+body.business-page .about-footer__socials img {
+  width: 22px;
+  height: 22px;
+}
+
+/* Large contact banner styling (match About page look) */
+body.business-page .contact-banner {
+  display: grid;
+  place-items: center;
+  gap: 1.5rem;
+  padding: 2rem 1.25rem;
+  background: #101010;
+  text-align: center;
+}
+
+body.business-page .contact-banner p {
+  margin: 0;
+  max-width: none;
+  font-family: "Epilogue", "Arial Narrow", Arial, sans-serif;
+  font-size: 128px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #f7f7f7;
+}
+
+@media (max-width: 900px) {
+  body.business-page .contact-banner p {
+    font-size: clamp(28px, 8vw, 64px);
+  }
+}
+
+body.business-page .work-button {
+  color: var(--accent);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-weight: 700;
+}
