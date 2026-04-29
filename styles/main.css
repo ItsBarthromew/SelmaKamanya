@@ -262,13 +262,27 @@ body.home-page .hero-slide {
   font-size: 13px;
 }
 
-.hero-nav.nav-light {
-  color: #1a1a1a;
-}
-
-.hero-nav.nav-light a:not(.work-link) {
+/* Individual navigation element adaptive colors */
+.hero-nav a.nav-light:not(.work-link) {
   color: #1a1a1a !important;
   -webkit-text-fill-color: #1a1a1a;
+  transition: color 200ms ease, -webkit-text-fill-color 200ms ease;
+}
+
+.hero-nav a.nav-dark:not(.work-link) {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff;
+  transition: color 200ms ease, -webkit-text-fill-color 200ms ease;
+}
+
+.hero-logo.nav-light img {
+  filter: brightness(0) saturate(100%);
+  transition: filter 200ms ease;
+}
+
+.hero-logo.nav-dark img {
+  filter: brightness(0) invert(1);
+  transition: filter 200ms ease;
 }
 
 .hero-nav-left {
@@ -385,6 +399,16 @@ body.home-page .hero-slide {
 .legal-links {
   display: flex;
   gap: 2.2rem;
+}
+
+.legal-links a.nav-light {
+  color: rgba(18, 25, 37, 0.95);
+  -webkit-text-fill-color: rgba(18, 25, 37, 0.95);
+}
+
+.legal-links a.nav-dark {
+  color: #ffffff;
+  -webkit-text-fill-color: #ffffff;
 }
 
 .legal-links a,
