@@ -6,12 +6,23 @@
 }
 
 /* Hero Content Spacing */
+/* Move this value up to lift the title block higher on the image. */
 .global-ambassador-page .about-image-hero__content {
-  transform: translateY(var(--about-title-offset, 10vh));
+  transform: translateY(var(--about-title-offset, 20%));
 }
 
+.global-ambassador-page .global-ambassador-hero__block {
+  display: block;
+}
+
+/* Increase this value to push the second text block farther down. */
+.global-ambassador-page .global-ambassador-hero__block--statement {
+  margin-top: 20rem;
+}
+
+/* This removes extra heading spacing so the block gap is controlled above. */
 .global-ambassador-page .about-image-hero__content h1:not(:first-of-type) {
-  margin-top: 16rem;
+  margin-top: 0;
 }
 
 .global-ambassador-page .about-image-hero__title {

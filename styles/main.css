@@ -57,8 +57,30 @@ body.page-is-leaving {
     transform 220ms ease;
 }
 
+/* Shared scroll reveal animation used across content pages */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 700ms ease,
+    transform 700ms ease;
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.reveal-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @media (prefers-reduced-motion: reduce) {
   body.page-is-leaving {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .reveal-item {
     opacity: 1;
     transform: none;
     transition: none;
@@ -235,10 +257,18 @@ body.home-page .hero-slide {
   gap: 1.5rem;
   text-transform: uppercase;
   letter-spacing: 0.28em;
-  color: #fff;
+  color: #1a1a1a;
   font-family: "Epilogue", "Arial Narrow", Arial, sans-serif;
   font-size: 13px;
-  mix-blend-mode: difference;
+}
+
+.hero-nav.nav-light {
+  color: #1a1a1a;
+}
+
+.hero-nav.nav-light a:not(.work-link) {
+  color: #1a1a1a !important;
+  -webkit-text-fill-color: #1a1a1a;
 }
 
 .hero-nav-left {
@@ -249,14 +279,32 @@ body.home-page .hero-slide {
   justify-content: flex-start;
 }
 
-.hero-nav a {
+.hero-nav a:not(.work-link) {
   color: currentColor !important;
-  -webkit-text-fill-color: currentColor;
+  -webkit-text-fill-color: currentColor !important;
   text-decoration: none;
   transition: opacity 140ms ease;
 }
 
-.hero-nav a:hover {
+.hero-nav a:not(.work-link):hover {
+  opacity: 0.62;
+}
+
+.hero-nav a.work-link {
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%) !important;
+  -webkit-background-clip: text !important;
+  -moz-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  color: transparent !important;
+  display: inline-block !important;
+  text-decoration: none;
+  transition: opacity 140ms ease;
+  font-weight: 700 !important;
+  letter-spacing: inherit;
+}
+
+.hero-nav a.work-link:hover {
   opacity: 0.62;
 }
 
@@ -272,16 +320,6 @@ body.home-page .hero-slide {
   height: 60px;
   opacity: 1;
   filter: brightness(0) invert(1);
-}
-
-.work-link {
-  color: currentColor !important;
-}
-
-/* Keep the work link adaptive with the rest of the nav */
-.hero-nav a.work-link {
-  color: currentColor !important;
-  -webkit-text-fill-color: currentColor !important;
 }
 
 .social-rail {
