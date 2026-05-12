@@ -1,13 +1,18 @@
 /* Social Impact Page Styles */
 
 body.social-impact-page {
-  background: #0b0b0b;
+  background: transparent;
   color: #f5f5f5;
 }
 
 body.social-impact-page .social-impact-shell {
-  background: #0b0b0b;
+  background: transparent;
   padding: 0;
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../assets/images/Spaceimage.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
 }
 
 body.social-impact-page .hero-header {
@@ -80,7 +85,7 @@ body.social-impact-page .social-impact-quote p {
 
 /* Social Values Section */
 body.social-impact-page .social-values-section {
-  background: #8f8888;
+  background: transparent;
   padding: 5rem 1.25rem 6rem;
 }
 
@@ -95,7 +100,7 @@ body.social-impact-page .section-heading h2 {
   font-family: "Epilogue", "Arial Narrow", Arial, sans-serif;
   font-size: 64px;
   text-transform: uppercase;
-  color: var(--text);
+  color: #ffffff;
   font-weight: 900;
 }
 
@@ -105,7 +110,7 @@ body.social-impact-page .section-heading p {
   font-size: 32px;
   font-weight: 900;
   text-transform: uppercase;
-  color: var(--text);
+  color: #ffffff;
   letter-spacing: 0.02em;
 }
 
@@ -121,7 +126,7 @@ body.social-impact-page .social-values-description p {
   font-size: clamp(0.95rem, 1vw, 1.05rem);
   font-weight: 300;
   line-height: 1.6;
-  color: var(--text);
+  color: #ffffff;
 }
 
 body.social-impact-page .social-values-description p:last-child {
@@ -140,10 +145,10 @@ body.social-impact-page .social-value-card {
   min-height: 180px;
   padding: 1.25rem;
   border-radius: 14px;
-  background: #1e1e1e;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: #fff;
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+  box-shadow: none;
 }
 
 body.social-impact-page .social-value-card span {
@@ -197,7 +202,7 @@ body.social-impact-page .social-impact-gallery img {
 
 /* Future / CTA Section */
 body.social-impact-page .social-future {
-  background: #1a1a1a;
+  background: transparent;
   color: #ffffff;
   padding: 5rem 1.25rem;
 }
@@ -210,7 +215,7 @@ body.social-impact-page .social-future__inner {
 
 body.social-impact-page .social-future__heading h2 {
   font-family: "Epilogue", "Arial Narrow", Arial, sans-serif;
-  font-size: 48px;
+  font-size: 64px;
   line-height: 1;
   letter-spacing: 0.02em;
   text-transform: uppercase;
@@ -228,7 +233,7 @@ body.social-impact-page .social-future__heading p {
 
 body.social-impact-page .social-future__cta h3 {
   font-family: "Epilogue", "Arial Narrow", Arial, sans-serif;
-  font-size: 36px;
+  font-size: 64px;
   text-transform: uppercase;
   letter-spacing: 0.03em;
   margin: 2rem 0 1.5rem;
@@ -245,7 +250,8 @@ body.social-impact-page .future-card {
   text-decoration: none;
   padding: 2rem 1.5rem;
   border-radius: 12px;
-  background: #0f0f0f;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: inherit;
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
@@ -311,7 +317,7 @@ body.social-impact-page .contact-banner {
   place-items: center;
   gap: 1.5rem;
   padding: 2rem 1.25rem;
-  background: #101010;
+  background: transparent;
   text-align: center;
   width: min(1200px, calc(100% - 2rem));
   margin: 0 auto;
@@ -349,8 +355,6 @@ body.social-impact-page .about-footer {
   padding: 1.4rem 2rem 2.4rem;
   border-top: 1px solid rgba(255, 255, 255, 0.16);
   color: #f5f5f5;
-  width: min(1200px, calc(100% - 2rem));
-  margin: 0 auto;
 }
 
 body.social-impact-page .about-footer__brand {
@@ -397,6 +401,7 @@ body.social-impact-page .about-footer__socials img {
   height: 100%;
   opacity: 0.72;
   transition: opacity 0.3s ease;
+  filter: brightness(0) invert(1);
 }
 
 body.social-impact-page .about-footer__socials a:hover img {

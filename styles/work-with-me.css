@@ -1,4 +1,12 @@
 /* Styles for Work With Me page */
+body.work-with-me-page .work-shell {
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../assets/images/Spaceimage.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+}
+
 body.work-with-me-page .work-hero {
   position: relative;
   width: 100%;
@@ -111,7 +119,7 @@ body.work-with-me-page .hero-logo img {
 
 /* Partnerships Section */
 body.work-with-me-page .work-partnerships {
-  background: #8f8888;
+  background: transparent;
   padding: 4rem 2rem;
 }
 
@@ -127,10 +135,10 @@ body.work-with-me-page .partnership-card {
   min-height: 180px;
   padding: 1.25rem;
   border-radius: 14px;
-  background: #1e1e1e;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: #fff;
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+  box-shadow: none;
 }
 
 body.work-with-me-page .partnership-card span {
@@ -177,7 +185,7 @@ body.work-with-me-page .partnerships-footer h2 {
   width: 100%;
   max-width: 840px;
   margin: 0 auto 0.5rem;
-  color: #1E1E1E;
+  color: #ffffff;
   text-wrap: balance;
 }
 
@@ -195,13 +203,13 @@ body.work-with-me-page .partnerships-categories span {
   letter-spacing: 4px;
   text-transform: uppercase;
   margin-top: 10px;
-  color: #1E1E1E;
+  color: #ffffff;
 }
 
 body.work-with-me-page .partnerships-footer p {
   font-family: "Manrope", system-ui, sans-serif;
   font-size: 0.9rem;
-  color: rgba(30,30,30,0.75);
+  color: rgba(255,255,255,0.75);
   max-width: 780px;
   margin: 0 auto;
   text-align: center;
@@ -221,7 +229,7 @@ body.work-with-me-page .partnerships-footer p {
 
 /* Contact & Booking Section */
 body.work-with-me-page .work-contact-booking {
-  background: #1E1E1E;
+  background: transparent;
   padding: 3.5rem 1.5rem 4rem;
   color: #f4f4f4;
 }
@@ -352,7 +360,7 @@ body.work-with-me-page .about-footer {
   gap: 1rem;
   padding: 1.4rem 2rem 2.4rem;
   border-top: 1px solid rgba(255, 255, 255, 0.16);
-  background: #1e1e1e;
+  background: transparent;
   color: #f5f5f5;
 }
 
@@ -386,6 +394,7 @@ body.work-with-me-page .about-footer__socials {
 body.work-with-me-page .about-footer__socials img {
   width: 22px;
   height: 22px;
+  filter: brightness(0) invert(1);
 }
 
 /* Reveal animation hooks for Work With Me page */

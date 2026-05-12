@@ -1,13 +1,18 @@
 /* About Page Styles */
 
 body.about-page {
-  background: #0b0b0b;
+  background: transparent;
   color: #f5f5f5;
 }
 
 body.about-page .about-page-shell {
-  background: #0b0b0b;
+  background: transparent;
   padding: 0;
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../assets/images/Spaceimage.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
 }
 
 body.about-page .hero-header {
@@ -136,10 +141,14 @@ body.about-page .about-hero__quote {
 
 body.about-page .about-story,
 body.about-page .investing-section,
-body.about-page .contact-banner,
-body.about-page .about-footer {
+body.about-page .contact-banner {
   width: min(1200px, calc(100% - 2rem));
   margin: 0 auto;
+}
+
+body.about-page .about-footer {
+  width: 100%;
+  margin: 0;
 }
 
 body.about-page .about-story {
@@ -195,8 +204,62 @@ body.about-page .about-story__copy p {
 }
 
 body.about-page .values-section {
-  background: #8f8888;
+  background-color: transparent;
+  color: #fff;
   padding: 5rem 1.25rem 6rem;
+  position: relative;
+  overflow: hidden;
+  min-height: 420px;
+}
+
+/* Use the supplied space image as a layered background for sections after the hero */
+body.about-page .about-images ~ section {
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+/* Remove pseudo-element background; using fixed backgrounds directly on sections instead */
+body.about-page .values-section::before,
+body.about-page .investing-section::before,
+body.about-page .contact-banner::before,
+body.about-page .about-footer::before {
+  content: "";
+  display: none;
+}
+
+/* Remove pseudo-element overlay */
+body.about-page .values-section::after,
+body.about-page .investing-section::after,
+body.about-page .contact-banner::after,
+body.about-page .about-footer::after {
+  display: none;
+}
+
+/* ensure headings and copy remain readable */
+body.about-page .about-images ~ section .section-heading h2,
+body.about-page .about-images ~ section h2 {
+  color: #ffffff;
+}
+
+body.about-page .about-images ~ section .investing-copy p,
+body.about-page .about-images ~ section .value-card p,
+body.about-page .about-images ~ section .investing-copy {
+  color: rgba(255,255,255,0.92);
+}
+
+body.about-page .about-images ~ section .about-link {
+  color: #fff;
+  border-bottom-color: rgba(255,255,255,0.16);
+}
+
+/* keep section content above the image and overlay */
+body.about-page .about-images ~ section > *,
+body.about-page .contact-banner > *,
+body.about-page .about-footer > * {
+  position: relative;
+  z-index: 3;
 }
 
 body.about-page .section-heading {
@@ -215,6 +278,40 @@ body.about-page .values-grid {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 1.1rem;
+}
+
+/* Marquee mode: horizontal scrolling loop */
+body.about-page .values-grid.is-marquee {
+  display: flex !important;
+  gap: 1.1rem;
+  align-items: stretch;
+  overflow: hidden;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  grid-template-columns: unset;
+  width: 650px !important;
+  margin: 0 auto !important;
+}
+
+.values-grid.is-marquee .value-card {
+  flex: 0 0 650px;
+  min-width: 650px;
+  max-width: 650px;
+}
+
+/* Global Ambassador page: wider values section and cards */
+body.global-ambassador-page .values-grid.is-marquee {
+  width: 1160px !important;
+}
+
+body.global-ambassador-page .values-grid.is-marquee .value-card {
+  flex: 0 0 1160px;
+  min-width: 1150px;
+  max-width: 1150px;
+}
+
+.values-grid.is-marquee .value-card:nth-child(n) {
+  margin: 0;
 }
 
 body.about-page .values-grid .value-card:nth-child(1),
@@ -267,10 +364,40 @@ body.about-page .value-card p {
 body.about-page .investing-section {
   display: grid;
   padding: 5rem 1.25rem;
-  background: #8f8888;
+  background-color: transparent;
+  color: #fff;
   width: 100%;
   max-width: none;
   margin: 0;
+  position: relative;
+  overflow: hidden;
+  min-height: 320px;
+}
+
+body.about-page .values-section > *,
+body.about-page .investing-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+body.about-page .values-section::before,
+body.about-page .investing-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(white 0.6px, rgba(255,255,255,0) 1px);
+  background-size: 150px 150px;
+  opacity: 0.6;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  animation: twinkle 6s linear infinite;
+  z-index: 0;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.45; }
+  50% { opacity: 0.85; }
+  100% { opacity: 0.45; }
 }
 
 body.about-page .investing-section__inner {
@@ -335,7 +462,7 @@ body.about-page .investing-mark {
 body.about-page .investing-mark img {
   width: min(220px, 26vw);
   height: auto;
-  filter: brightness(0);
+  filter: invert(1) brightness(1.2);
   opacity: 0.85;
 }
 
@@ -344,7 +471,7 @@ body.about-page .contact-banner {
   place-items: center;
   gap: 1.5rem;
   padding: 2rem 1.25rem;
-  background: #101010;
+  background-color: transparent;
   text-align: center;
 }
 
@@ -380,6 +507,7 @@ body.about-page .about-footer {
   padding: 1.4rem 2rem 2.4rem;
   border-top: 1px solid rgba(255, 255, 255, 0.16);
   color: #f5f5f5;
+  background-color: transparent;
 }
 
 body.about-page .about-footer__brand {
@@ -412,6 +540,11 @@ body.about-page .about-footer__socials {
 body.about-page .about-footer__socials img {
   width: 22px;
   height: 22px;
+}
+
+/* Make footer icons appear white */
+body.about-page .about-footer__socials img {
+  filter: invert(1) brightness(1.1) saturate(0.9);
 }
 
 body.about-page .reveal-item {

@@ -307,10 +307,86 @@ document.addEventListener("DOMContentLoaded", () => {
 		setTimeout(updateAllElements, 100);
 	};
 
+	const setupValuesAutoScroll = () => {
+		const grid = document.querySelector(".values-grid");
+		if (!grid) return;
+
+		const cards = Array.from(grid.children);
+		if (cards.length === 0) return;
+
+		// Enable marquee CSS
+		grid.classList.add("is-marquee");
+
+		// Clone items to allow seamless looping
+		const cloneFragment = document.createDocumentFragment();
+		cards.forEach((c) => cloneFragment.appendChild(c.cloneNode(true)));
+		grid.appendChild(cloneFragment);
+
+		let currentIndex = 0;
+		let paused = false;
+		let autoScrollInterval = null;
+		const totalCards = cards.length;
+		let cardWidth = 0;
+
+		const measureCardWidth = () => {
+			if (cards[0]) {
+				const rect = cards[0].getBoundingClientRect();
+				const style = window.getComputedStyle(grid);
+				const gap = parseFloat(style.gap) || 8.8;
+				cardWidth = rect.width + gap;
+			}
+		};
+
+		const scrollToCard = (index) => {
+			if (cardWidth === 0) measureCardWidth();
+			const targetScroll = index * cardWidth;
+			grid.scrollLeft = targetScroll;
+		};
+
+		const nextCard = () => {
+			if (!paused) {
+				currentIndex = (currentIndex + 1) % totalCards;
+				scrollToCard(currentIndex);
+			}
+		};
+
+		// Measure on load and resize
+		measureCardWidth();
+		window.addEventListener('resize', measureCardWidth);
+
+		// Auto-advance every 3 seconds
+		autoScrollInterval = setInterval(nextCard, 3000);
+
+		// Pause on hover/focus
+		grid.addEventListener("mouseenter", () => { 
+			paused = true; 
+			clearInterval(autoScrollInterval);
+		});
+		grid.addEventListener("mouseleave", () => { 
+			paused = false; 
+			autoScrollInterval = setInterval(nextCard, 3000);
+		});
+		grid.addEventListener("focusin", () => { 
+			paused = true; 
+			clearInterval(autoScrollInterval); 
+		});
+		grid.addEventListener("focusout", () => { 
+			paused = false; 
+			autoScrollInterval = setInterval(nextCard, 3000);
+		});
+
+		// Prevent keyboard scrolling inside grid
+		grid.addEventListener("wheel", (e) => { e.preventDefault(); }, { passive: false });
+
+		// Initial state
+		scrollToCard(0);
+	};
+
 	setupPageTransitions();
 	setupHomeIntro();
 	setupHomeHorizontalCarousel();
 	setupAdaptiveNavigation();
+	setupValuesAutoScroll();
 
 	const revealTargets = document.querySelectorAll(
 		"body.about-page .about-image-hero, body.about-page .about-image-two, body.about-page .values-section, body.about-page .investing-section, body.about-page .contact-banner, body.about-page .about-footer, body.about-page .value-card, body.about-page .about-image-hero__content, body.about-page .about-image-two__text-right, body.about-page .about-image-two__text-left, body.about-page .about-image-two__text-right-down, body.global-ambassador-page .about-image-hero, body.global-ambassador-page .global-ambassador-hero__block--intro, body.global-ambassador-page .global-ambassador-hero__block--statement, body.global-ambassador-page .values-section, body.global-ambassador-page .value-card, body.global-ambassador-page .investing-section, body.global-ambassador-page .investing-image, body.global-ambassador-page .investing-copy, body.global-ambassador-page .speaker-topics, body.global-ambassador-page .speaker-panels, body.global-ambassador-page .speaker-button, body.global-ambassador-page .contact-banner, body.global-ambassador-page .about-footer, body.business-page .business-image-one, body.business-page .business-image-two, body.business-page .business-image-one__quote, body.business-page .business-image-one__text, body.business-page .business-image-two__content, body.business-page .business-image-two__logo, body.business-page .business-image-two__content-flipped, body.business-page .business-image-two__logo-flipped, body.business-page .business-partners, body.business-page .business-partners__intro, body.business-page .business-partners__collab, body.business-page .business-partners__offers, body.gallery-page .gallery-hero, body.gallery-page .gallery-filters, body.gallery-page .gallery-item-1, body.gallery-page .gallery-item-2, body.gallery-page .gallery-item-3, body.gallery-page .gallery-item-4, body.gallery-page .gallery-item-5, body.gallery-page .gallery-item-6, body.gallery-page .gallery-item-7, body.gallery-page .contact-banner, body.gallery-page .about-footer, body.social-impact-page .social-impact-hero, body.social-impact-page .social-impact-quote, body.social-impact-page .social-values-section, body.social-impact-page .social-values-description, body.social-impact-page .social-value-card, body.social-impact-page .social-impact-gallery, body.social-impact-page .social-future, body.social-impact-page .social-future__heading, body.social-impact-page .social-future__cta, body.social-impact-page .social-future__grid, body.social-impact-page .contact-banner, body.social-impact-page .about-footer, body.work-with-me-page .work-hero__image, body.work-with-me-page .work-hero__content, body.work-with-me-page .work-hero__content h1, body.work-with-me-page .work-hero__content p, body.work-with-me-page .work-hero__quote, body.work-with-me-page .work-partnerships, body.work-with-me-page .partnership-card, body.work-with-me-page .partnerships-footer, body.work-with-me-page .work-contact-booking, body.work-with-me-page .work-contact-booking__inner, body.work-with-me-page .work-contact-booking__info, body.work-with-me-page .work-contact-booking__form, body.work-with-me-page .about-footer",

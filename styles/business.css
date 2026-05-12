@@ -1,12 +1,12 @@
 /* Business Page Styles */
 
 body.business-page {
-  background: #0b0b0b;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 20, 40, 0.5)), url("../assets/images/Spaceimage.jpg") center top / cover no-repeat fixed;
   color: #f5f5f5;
 }
 
 body.business-page .business-page-shell {
-  background: #0b0b0b;
+  background: transparent;
   padding: 0;
 }
 
@@ -263,6 +263,27 @@ body.business-page .business-image-two {
   background-image:
     linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.18)),
     url("../assets/images/BusinessBackground2.png");
+  position: relative;
+  z-index: 2;
+}
+
+/* Make sections transparent to show space background */
+body.business-page .business-partners {
+  background-color: transparent;
+  position: relative;
+  z-index: 3;
+}
+
+body.business-page .contact-banner {
+  background-color: transparent;
+  position: relative;
+  z-index: 3;
+}
+
+body.business-page .about-footer {
+  background-color: transparent;
+  position: relative;
+  z-index: 3;
 }
 
 body.business-page .business-image-two__overlay {
@@ -455,7 +476,7 @@ body.business-page .business-partners {
   /* full-bleed background */
   width: 100%;
   padding: 5rem 0 6rem;
-  background: linear-gradient(180deg, #101010 0%, #141414 100%);
+  background: transparent;
 }
 
 body.business-page .business-partners__inner {
@@ -469,7 +490,7 @@ body.business-page .business-partners__inner {
 body.business-page .business-partners__intro h2 {
   margin: 0;
   font-family: "Epilogue", "Arial Narrow", Arial, sans-serif;
-  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-size: 64px;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -531,7 +552,7 @@ body.business-page .business-partners__logos img {
 body.business-page .business-partners__offers h3 {
   margin: 0;
   font-family: "Epilogue", "Arial Narrow", Arial, sans-serif;
-  font-size: clamp(1.8rem, 3vw, 2.9rem);
+  font-size: 64px;
   font-weight: 900;
   text-transform: uppercase;
 }
@@ -547,6 +568,7 @@ body.business-page .business-partners__offers ul {
 body.business-page .business-partners__offers li {
   font-family: "Epilogue", "Arial Narrow", Arial, sans-serif;
   font-weight: 800;
+  font-size: 32px;
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
@@ -642,6 +664,7 @@ body.business-page .about-footer__socials {
 body.business-page .about-footer__socials img {
   width: 22px;
   height: 22px;
+  filter: brightness(0) invert(1);
 }
 
 /* Large contact banner styling (match About page look) */
@@ -650,7 +673,7 @@ body.business-page .contact-banner {
   place-items: center;
   gap: 1.5rem;
   padding: 2rem 1.25rem;
-  background: #101010;
+  background: transparent;
   text-align: center;
 }
 

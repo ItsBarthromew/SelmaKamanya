@@ -56,7 +56,7 @@
 
 /* Values Section - Custom styling for Global Ambassador */
 .global-ambassador-page .values-section {
-  background: linear-gradient(135deg, #2c468f 0%, #00c9b1 100%);
+  background: transparent;
 }
 
 .global-ambassador-page .section-heading h2 {
@@ -91,7 +91,7 @@
 
 /* Investing Section */
 .global-ambassador-page .investing-section {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .global-ambassador-page .investing-section__inner {
@@ -112,6 +112,8 @@
   height: 378px;
   object-fit: cover;
   border-radius: 22px;
+  border: 2px solid rgba(0, 201, 177, 0.4);
+  box-shadow: 0 8px 32px rgba(0, 201, 177, 0.15);
 }
 
 .global-ambassador-page .investing-copy h2 {
@@ -125,7 +127,7 @@
 }
 
 .global-ambassador-page .investing-copy p {
-  color: rgba(255, 255, 255, 0.85);
+  color: #ffffff !important;
   line-height: 1.6;
   margin-bottom: 2rem;
 }
@@ -137,7 +139,7 @@
 
 .global-ambassador-page .speaker-topics h3,
 .global-ambassador-page .speaker-panels h3 {
-  color: #000000;
+  color: #ffffff;
   font-size: 0.95rem;
   font-weight: 700;
   text-transform: none;
@@ -154,7 +156,7 @@
 
 .global-ambassador-page .speaker-topics li,
 .global-ambassador-page .speaker-panels li {
-  color: #000000;
+  color: #ffffff;
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.8;
@@ -171,11 +173,13 @@
   left: 0;
 }
 
-.global-ambassador-page .speaker-button {
+.global-ambassador-page .speaker-button,
+.global-ambassador-page .speaker-link {
   display: inline-block;
   margin-top: 1.5rem;
   padding: 0.8rem 2rem;
-  background: linear-gradient(90deg, #2c468f 0%, #00c9b1 100%);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   color: #ffffff;
   text-decoration: none;
   text-transform: uppercase;
@@ -186,8 +190,10 @@
   transition: opacity 140ms ease;
 }
 
-.global-ambassador-page .speaker-button:hover {
+.global-ambassador-page .speaker-button:hover,
+.global-ambassador-page .speaker-link:hover {
   opacity: 0.8;
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 .global-ambassador-page .investing-copy p {
@@ -196,7 +202,7 @@
 
 /* Contact Banner */
 .global-ambassador-page .contact-banner {
-  background: linear-gradient(90deg, #2c468f 0%, #00c9b1 100%);
+  background: transparent;
 }
 
 .global-ambassador-page .contact-banner p {
