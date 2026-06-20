@@ -8,7 +8,7 @@ body.about-page {
 body.about-page .about-page-shell {
   background: transparent;
   padding: 0;
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../assets/images/Spaceimage.jpg");
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../assets/images/Spaceimage.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -171,13 +171,13 @@ body.about-page .about-story__image {
 body.about-page .about-story__image--primary {
   background-image:
     linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.25)),
-    url("../assets/images/AboutBackgroundImage2.png");
+    url("../assets/images/AboutBackgroundImage2.webp");
 }
 
 body.about-page .about-story__image--secondary {
   background-image:
     linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.18)),
-    url("../assets/images/AboutBackgroundImage1.png");
+    url("../assets/images/AboutBackgroundImage1.webp");
   filter: grayscale(1);
 }
 

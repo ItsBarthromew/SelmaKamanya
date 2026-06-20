@@ -2,7 +2,7 @@
 
 /* Hero Section */
 .global-ambassador-page .about-image-hero {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url("../assets/images/GlobalAmbassadorBackground.png") center top / cover no-repeat;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url("../assets/images/GlobalAmbassadorBackground.webp") center top / cover no-repeat;
 }
 
 /* Hero Content Spacing */

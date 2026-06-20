@@ -8,7 +8,7 @@ body.social-impact-page {
 body.social-impact-page .social-impact-shell {
   background: transparent;
   padding: 0;
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../assets/images/Spaceimage.jpg");
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../assets/images/Spaceimage.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -52,7 +52,7 @@ body.social-impact-page .social-impact-hero {
   min-height: 100svh;
   background:
     linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8)),
-    url("../assets/images/SocialImpactBackgroundImage.png") center top / cover no-repeat;
+    url("../assets/images/SocialImpactBackgroundImage.webp") center top / cover no-repeat;
   display: grid;
   place-items: center;
   padding: 4rem 1.5rem;

@@ -1,7 +1,7 @@
 /* Gallery Page Styles */
 
 body.gallery-page .gallery-hero {
-  background: url("../assets/images/GalleryBackground.png") center top / cover no-repeat;
+  background: url("../assets/images/GalleryBackground.webp") center top / cover no-repeat;
 }
 
 body.gallery-page .gallery-hero .about-image-hero__content {
