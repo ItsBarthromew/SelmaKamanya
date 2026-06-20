@@ -62,7 +62,7 @@ body.about-page .about-hero {
   min-height: 100svh;
   background:
     linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8)),
-    url("../assets/images/AboutBackgroundImage1.png") center top / cover no-repeat;
+    url("../assets/images/AboutBackgroundImage1.webp") center top / cover no-repeat;
   display: grid;
   place-items: end center;
   padding: 4rem 1.5rem 4rem;
